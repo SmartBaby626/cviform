@@ -69,7 +69,7 @@ nextButton.addEventListener('click', async () => {
 
         // Submit form data to the server
         try {
-            const response = await fetch('https://cviform-server.netlify.app/.netlify/functions/submit-results', {
+            const response = await fetch('https://cviform-server.netlify.app/netlify/functions/submit-results', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ nextButton.addEventListener('click', async () => {
 async function buildDocument(childName, dateOfBirth) {
     try {
         const response = await fetch(
-            `https://cviform-server.netlify.app/.netlify/functions/makeDoc?childName=${encodeURIComponent(childName)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}`,
+            `https://cviform-server.netlify.app/netlify/functions/makeDoc?childName=${encodeURIComponent(childName)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}`,
             { method: "GET" }
         );
 
