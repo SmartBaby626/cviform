@@ -84,23 +84,7 @@ nextButton.addEventListener('click', () => {
         console.log("Age Select Results:", ageSelectResults); // Print age select form results
         console.log("Form 48 Results:", results); // Print form48 results
 
-        // Send ageSelectResults to the Node.js server
-        fetch('https://cviform-server.netlify.app/netlify/functions/submit-results', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(ageSelectResults) // Send the data as JSON
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Server response:", data); // Log the response from the server
-            alert("Form 48 has been submitted and data sent to the server!");
-            buildDocument(childName, dateOfBirth)
-        })
-        .catch(error => {
-            console.error("Error sending data to server:", error);
-        });
+        buildDocument(childName, dateOfBirth);
 
         return; // Prevent further navigation
     }
@@ -187,21 +171,27 @@ function checkRequiredFields() {
     nextButton.disabled = !allFilled; // Disable the "Next" button if any field is missing
 }
 async function buildDocument(childNameD, dateOfBirthD) {
-    dateOfBirthD2 = dateOfBirthD.toString()
     try {
-        console.log(`https://cviform-server.netlify.app/netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD2)}`)
-        const response = await fetch(
-            `https://cviform-server.netlify.app/netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD2)}`
-        );
+        // Pass parameters as query string in the URL
+        const url = `https://cviform-server.netlify.app/netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
+
+        const response = await fetch(url, { method: "GET" });
 
         if (response.ok) {
-            const data = await response.json();
-            alert(data.message);
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = downloadUrl;
+            link.download = "Generated_Document.docx";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
         } else {
-            alert('Error: ' + response.statusText);
+            alert("Error generating document: " + response.statusText);
         }
     } catch (error) {
-        alert('Error: ' + error.message);
+        console.error("Error generating document:", error);
+        alert("Error generating document: " + error.message);
     }
 }
 
