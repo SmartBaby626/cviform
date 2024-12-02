@@ -86,7 +86,7 @@ nextButton.addEventListener('click', () => {
 
         // Send ageSelectResults to the Node.js server
         fetch('https://cviform-server.netlify.app/.netlify/functions//submit-results', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
