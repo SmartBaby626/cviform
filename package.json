@@ -1,0 +1,16 @@
+{
+  "name": "docx-maker-cvi",
+  "version": "1.0.0",
+  "description": "Takes passed data and returns docx file for cvi form",
+  "main": "docMaker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Special Eyes Vision Services",
+  "license": "ISC",
+  "dependencies": {
+    "docx": "^9.1.0",
+    "express": "^4.21.1",
+    "fs": "^0.0.1-security"
+  }
+}
