@@ -189,6 +189,7 @@ function checkRequiredFields() {
 async function buildDocument(childNameD, dateOfBirthD) {
     dateOfBirthD2 = dateOfBirthD.toString()
     try {
+        console.log(`https://cviform-server.netlify.app/.netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD2)}`)
         const response = await fetch(
             `https://cviform-server.netlify.app/.netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD2)}`
         );
