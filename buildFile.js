@@ -86,7 +86,7 @@ nextButton.addEventListener('click', () => {
 
         // Send ageSelectResults to the Node.js server
         fetch('/submit-results', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
