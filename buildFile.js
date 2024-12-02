@@ -37,7 +37,7 @@ document.getElementById('birthProblems').addEventListener('input', checkRequired
 document.getElementById('affectingConditions').addEventListener('input', checkRequiredFields);
 document.getElementById('visionConcerns').addEventListener('input', checkRequiredFields);
 
-// Handle "Next" button click
+// Add an event listener for the "Next" button
 nextButton.addEventListener('click', async () => {
     if (nextButton.textContent === "Submit") {
         const childName = document.getElementById('childName').value;
@@ -109,7 +109,25 @@ nextButton.addEventListener('click', async () => {
     }
 });
 
-// Build and download the Word document
+// Function to validate required fields
+function checkRequiredFields() {
+    const requiredFields = [
+        'childName', 'dateOfBirth', 'pregWeeks', 'birthProblems', 'affectingConditions', 'visionConcerns'
+    ];
+
+    let allFilled = true;
+
+    requiredFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field && field.value.trim() === "") {
+            allFilled = false;
+        }
+    });
+
+    nextButton.disabled = !allFilled; // Disable the "Next" button if any field is empty
+}
+
+// Function to generate and download the Word document
 async function buildDocument(childName, dateOfBirth) {
     try {
         const response = await fetch(
