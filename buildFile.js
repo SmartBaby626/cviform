@@ -201,7 +201,7 @@ function generateDocx() {
             });
 
             try {
-                doc.render();
+                
                 const blob = doc.getZip().generate({
                     type: "blob",
                     mimeType:
