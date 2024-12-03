@@ -196,8 +196,8 @@ function generateDocx() {
 
             // Render the document with dynamic data
             doc.render({
-                childName: childName,
-                dateOfBirth: dateOfBirth,
+                childName: childName.value,
+                dateOfBirth: dateOfBirth.value,
             });
 
             try {
