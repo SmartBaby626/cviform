@@ -84,7 +84,7 @@ nextButton.addEventListener('click', () => {
         console.log("Age Select Results:", ageSelectResults); // Print age select form results
         console.log("Form 48 Results:", results); // Print form48 results
 
-        generateDocx(childName.value, dateOfBirth.value);
+        generateDocx();
 
         return; // Prevent further navigation
     }
