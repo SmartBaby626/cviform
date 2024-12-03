@@ -84,7 +84,7 @@ nextButton.addEventListener('click', () => {
         console.log("Age Select Results:", ageSelectResults); // Print age select form results
         console.log("Form 48 Results:", results); // Print form48 results
 
-        buildDocument(childName.value, dateOfBirth.value);
+        generateDocx(childName.value, dateOfBirth.value);
 
         return; // Prevent further navigation
     }
@@ -170,29 +170,67 @@ function checkRequiredFields() {
 
     nextButton.disabled = !allFilled; // Disable the "Next" button if any field is missing
 }
-async function buildDocument(childNameD, dateOfBirthD) {
+
+// app.js
+
+// Function to generate the .docx file
+// app.js
+
+import PizZip from 'https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.0.0/pizzip.min.js';
+import Docxtemplater from 'https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.25.0/docxtemplater.js';
+
+// Function to generate the .docx file
+function generateDocx() {
+    const childName = document.getElementById("childName").value;
+    const dateOfBirth = document.getElementById("dateOfBirth").value;
+
+    // Validate inputs
+    if (!childName || !dateOfBirth) {
+        alert("Please provide both child name and date of birth.");
+        return;
+    }
+
+    // Create a template for the document (this could be an external file or embedded as a string)
+    const docxTemplate = `
+    <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+        <w:body>
+            <w:p>
+                <w:r>
+                    <w:t>Child Name: ${childName}</w:t>
+                </w:r>
+            </w:p>
+            <w:p>
+                <w:r>
+                    <w:t>Date of Birth: ${dateOfBirth}</w:t>
+                </w:r>
+            </w:p>
+        </w:body>
+    </w:document>`;
+
+    // Load the template into Pizzip
+    const zip = new PizZip(docxTemplate);
+    const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+
     try {
-        const url = `https://cviform-server.vercel.app/Downloads/cviform-server/api/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
+        // Render the document with the data
+        doc.render();
+        const out = doc.getZip().generate({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
 
-        const response = await fetch(url, { method: "GET" });
-
-        if (response.ok) {
-            const blob = await response.blob();
-            const downloadUrl = window.URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.href = downloadUrl;
-            link.download = "Generated_Document.docx";
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
-        } else {
-            alert("Error generating document: " + response.statusText);
-        }
+        // Trigger the download of the generated file
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(out);
+        link.download = "Generated_Document.docx";
+        link.click();
     } catch (error) {
-        console.error("Error generating document:", error);
-        alert("Error generating document: " + error.message);
+        console.error("Error generating DOCX:", error);
     }
 }
+
+
+
+
+// Event listener to trigger the docx generation when the button is clicked
+
 
 // Call checkRequiredFields initially to handle the case where the user may not have selected anything yet
  
