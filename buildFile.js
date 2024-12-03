@@ -176,7 +176,7 @@ function checkRequiredFields() {
 // Function to generate the .docx file
 // app.js
 
-import PizZip from 'https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.0.0/pizzip.min.js';
+import PizZip from 'https://cdn.jsdelivr.net/npm/pizzip@3.1.7/dist/pizzip.min.js';
 import Docxtemplater from 'https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.25.0/docxtemplater.js';
 
 // Function to generate the .docx file
