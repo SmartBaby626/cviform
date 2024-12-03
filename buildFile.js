@@ -198,6 +198,10 @@ function generateDocx() {
             doc.render({
                 childName: childName.value,
                 dateOfBirth: dateOfBirth.value,
+                pregWeeks: pregWeeks.value,
+                birthProblems: birthProblems.value,
+                affectingConditions: affectingConditions.value,
+                visionConcerns: visionConcerns.value
             });
 
             try {
