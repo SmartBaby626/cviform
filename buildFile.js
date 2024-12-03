@@ -172,8 +172,7 @@ function checkRequiredFields() {
 }
 async function buildDocument(childNameD, dateOfBirthD) {
     try {
-        // Pass parameters as query string in the URL
-        const url = `https://https://cviform-server.vercel.app/Downloads/cviform-server/.netlify/functions/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
+        const url = `https://cviform-server.vercel.app/api/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
 
         const response = await fetch(url, { method: "GET" });
 
