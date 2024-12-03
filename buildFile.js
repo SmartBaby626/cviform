@@ -176,55 +176,62 @@ function checkRequiredFields() {
 // Function to generate the .docx file
 // app.js
 
-import PizZip from 'https://cdn.jsdelivr.net/npm/pizzip@3.1.7/dist/pizzip.min.js';
-import Docxtemplater from 'https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.54.1/docxtemplater.min.js';
+
 
 // Function to generate the .docx file
+// app.js
+
 function generateDocx() {
     const childName = document.getElementById("childName").value;
     const dateOfBirth = document.getElementById("dateOfBirth").value;
 
-    // Validate inputs
     if (!childName || !dateOfBirth) {
         alert("Please provide both child name and date of birth.");
         return;
     }
 
-    // Create a template for the document (this could be an external file or embedded as a string)
-    const docxTemplate = `
-    <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-        <w:body>
-            <w:p>
-                <w:r>
-                    <w:t>Child Name: ${childName}</w:t>
-                </w:r>
-            </w:p>
-            <w:p>
-                <w:r>
-                    <w:t>Date of Birth: ${dateOfBirth}</w:t>
-                </w:r>
-            </w:p>
-        </w:body>
-    </w:document>`;
+    // Template content for the .docx file
+    const template = `
+        <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+            <w:body>
+                <w:p>
+                    <w:r>
+                        <w:t>Child Name: ${childName}</w:t>
+                    </w:r>
+                </w:p>
+                <w:p>
+                    <w:r>
+                        <w:t>Date of Birth: ${dateOfBirth}</w:t>
+                    </w:r>
+                </w:p>
+            </w:body>
+        </w:document>
+    `;
 
-    // Load the template into Pizzip
-    const zip = new PizZip(docxTemplate);
-    const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+    // Use PizZip to load the template into memory
+    const zip = new PizZip(template);
+    const doc = new docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
 
     try {
-        // Render the document with the data
+        // Render the document
         doc.render();
-        const out = doc.getZip().generate({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
 
-        // Trigger the download of the generated file
+        // Generate a Blob containing the document data
+        const blob = doc.getZip().generate({
+            type: "blob",
+            mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        });
+
+        // Trigger download in the browser
         const link = document.createElement("a");
-        link.href = URL.createObjectURL(out);
+        link.href = URL.createObjectURL(blob);
         link.download = "Generated_Document.docx";
         link.click();
     } catch (error) {
-        console.error("Error generating DOCX:", error);
+        console.error("Error generating document:", error);
     }
 }
+
 
 
 
