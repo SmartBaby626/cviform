@@ -180,7 +180,6 @@ function checkRequiredFields() {
 
 // Function to generate the .docx file
 // app.js
-
 function generateDocx() {
     const childName = document.getElementById("childName").value;
     const dateOfBirth = document.getElementById("dateOfBirth").value;
@@ -190,47 +189,46 @@ function generateDocx() {
         return;
     }
 
-    // Template content for the .docx file
-    const template = `
-        <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-            <w:body>
-                <w:p>
-                    <w:r>
-                        <w:t>Child Name: ${childName}</w:t>
-                    </w:r>
-                </w:p>
-                <w:p>
-                    <w:r>
-                        <w:t>Date of Birth: ${dateOfBirth}</w:t>
-                    </w:r>
-                </w:p>
-            </w:body>
-        </w:document>
-    `;
+    // Fetch the template file
+    fetch("template.docx") // Path to your template file
+        .then((response) => response.arrayBuffer())
+        .then((templateArrayBuffer) => {
+            // Load the template file with PizZip
+            const zip = new PizZip(templateArrayBuffer);
+            const doc = new docxtemplater(zip, {
+                paragraphLoop: true,
+                linebreaks: true,
+            });
 
-    // Use PizZip to load the template into memory
-    const zip = new PizZip(template);
-    const doc = new docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+            // Render the document with dynamic data
+            doc.setData({
+                childName: childName,
+                dateOfBirth: dateOfBirth,
+            });
 
-    try {
-        // Render the document
-        doc.render();
+            try {
+                doc.render();
+                const blob = doc.getZip().generate({
+                    type: "blob",
+                    mimeType:
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                });
 
-        // Generate a Blob containing the document data
-        const blob = doc.getZip().generate({
-            type: "blob",
-            mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                // Trigger the download
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "Generated_Document.docx";
+                link.click();
+            } catch (error) {
+                console.error("Error rendering document:", error);
+            }
+        })
+        .catch((error) => {
+            console.error("Error loading template:", error);
         });
-
-        // Trigger download in the browser
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "Generated_Document.docx";
-        link.click();
-    } catch (error) {
-        console.error("Error generating document:", error);
-    }
 }
+
+
 
 
 
