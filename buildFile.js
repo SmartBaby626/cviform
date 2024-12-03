@@ -172,7 +172,7 @@ function checkRequiredFields() {
 }
 async function buildDocument(childNameD, dateOfBirthD) {
     try {
-        const url = `https://cviform-server.vercel.app/api/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
+        const url = `https://cviform-server.vercel.app/Downloads/cviform-server/api/makeDoc?childName=${encodeURIComponent(childNameD)}&dateOfBirth=${encodeURIComponent(dateOfBirthD)}`;
 
         const response = await fetch(url, { method: "GET" });
 
