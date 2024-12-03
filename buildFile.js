@@ -181,13 +181,7 @@ function checkRequiredFields() {
 // Function to generate the .docx file
 // app.js
 function generateDocx() {
-    const childName = document.getElementById("childName").value;
-    const dateOfBirth = document.getElementById("dateOfBirth").value;
 
-    if (!childName || !dateOfBirth) {
-        alert("Please provide both child name and date of birth.");
-        return;
-    }
 
     // Fetch the template file
     fetch("template.docx") // Path to your template file
