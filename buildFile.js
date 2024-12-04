@@ -182,7 +182,14 @@ function checkRequiredFields() {
 // app.js
 function generateDocx() {
 
-
+    const options = ["never", "rarely", "sometimes", "often", "always", "not_applicable"];
+    const tableData = Object.entries(results).map(([question, answer]) => {
+    const row = {question};
+    options.forEach((option) => {
+        row[option] = answer === option ? "✓" : "";
+    });
+    return row;
+    });
     // Fetch the template file
     fetch("template.docx") // Path to your template file
         .then((response) => response.arrayBuffer())
@@ -201,7 +208,8 @@ function generateDocx() {
                 pregWeeks: pregWeeks.value,
                 birthProblems: birthProblems.value,
                 affectingConditions: affectingConditions.value,
-                visionConcerns: visionConcerns.value
+                visionConcerns: visionConcerns.value,
+                likertTable: tableData
             });
 
             try {
