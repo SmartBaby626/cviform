@@ -59,7 +59,7 @@ nextButton.addEventListener('click', () => {
         }
 
         // Collect results from form48 and log to console
-        const results = {};
+        let results = {};
         questions.forEach(question => {
             const selectedOption = document.querySelector(`form#form48 input[name="${question}"]:checked`);
             results[question] = selectedOption ? selectedOption.value : "No option selected";
