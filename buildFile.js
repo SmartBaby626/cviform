@@ -181,7 +181,12 @@ function checkRequiredFields() {
 // Function to generate the .docx file
 // app.js
 function generateDocx() {
-
+     const questions = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10', 'question11', 'question12', 'question13', 'question14', 'question15', 'question16', 'question17', 'question18', 'question19', 'question20', 'question21', 'question22', 'question23', 'question24', 'question25', 'question26', 'question27', 'question28', 'question29', 'question30', 'question31', 'question32', 'question33', 'question34', 'question35', 'question36', 'question37', 'question38', 'question39', 'question40', 'question41', 'question42', 'question43', 'question44', 'question45', 'question46', 'question47', 'question48', 'question49', 'question50', 'question51', 'question52', 'question53'];
+    const results = {};
+        questions.forEach(question => {
+            const selectedOption = document.querySelector(`form#form48 input[name="${question}"]:checked`);
+            results[question] = selectedOption ? selectedOption.value : "No option selected";
+        });
     const options = ["never", "rarely", "sometimes", "often", "always", "not_applicable"];
     const tableData = Object.entries(results).map(([question, answer]) => {
     const row = {question};
