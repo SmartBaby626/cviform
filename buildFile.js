@@ -82,7 +82,8 @@ function generateDocx(templateFile, outputFileName, formId) {
         'question36', 'question37', 'question38', 'question39', 'question40',
         'question41', 'question42', 'question43', 'question44', 'question45',
         'question46', 'question47', 'question48', 'question49', 'question50',
-        'question51', 'question52', 'question53'
+        'question51', 'question52', 'question53', 'question54', 'question55',
+        'question56'
     ];
 
     // Select correct question set
