@@ -597,13 +597,517 @@ form .buttons .submit:hover {background-color: #14892c;}
         
 
         <!-- Form for Ages 9-12 (hidden by default) -->
+        <!-- Form for Ages 9-12 (hidden by default) -->
         <form id="form912" style="display: none;">
-            <p>Please select your favorite animal:</p>
-            <input type="radio" id="animalOp1" name="animalSelect" value="Dog">
-            <label for="animalOp1">Dog</label><br>
-            <input type="radio" id="animalOp2" name="animalSelect" value="Cat">
-            <label for="animalOp2">Cat</label>
+            <p><b>Instructions to Parents/ Guardians</b><br>
+                We want to know about what your child is like <i>now.</i> These questions are designed for a range of ages
+                and abilities, so some questions may seem odd or may not be relevant to your child. Your child may have
+                difficulty with some of the activities listed below but not others – this is normal.
+                <br><br>You may also notice that your child has more difficulty with some of the activities when they are tired,
+                this is not uncommon.
+                <br><br>For each of the items listed on the following pages, please tick the box which best fits with
+                your child’s present behaviour:<br>
+                <b>never / rarely / sometimes / often / always / not applicable (NA)</b><br><br>
+                If you are not sure how to answer any of these questions please leave them blank.</p>
+            <h1>Does your child:</h1>
+            <label class="statement">1. Trip over toys and obstacles on the floor?</label>
+            <ul class='likert'>
+                <li><input type="radio" name="question1" value="never"><label>Never</label></li>
+                <li><input type="radio" name="question1" value="rarely"><label>Rarely</label></li>
+                <li><input type="radio" name="question1" value="sometimes"><label>Sometimes</label></li>
+                <li><input type="radio" name="question1" value="often"><label>Often</label></li>
+                <li><input type="radio" name="question1" value="always"><label>Always</label></li>
+                <li><input type="radio" name="question1" value="not_applicable"><label>Not Applicable</label></li>
+            </ul>
+            <label class="statement">2. Have difficulty walking down stairs?</label>
+            <ul class='likert'>
+                <li><input type="radio" name="question2" value="never"><label>Never</label></li>
+                <li><input type="radio" name="question2" value="rarely"><label>Rarely</label></li>
+                <li><input type="radio" name="question2" value="sometimes"><label>Sometimes</label></li>
+                <li><input type="radio" name="question2" value="often"><label>Often</label></li>
+                <li><input type="radio" name="question2" value="always"><label>Always</label></li>
+                <li><input type="radio" name="question2" value="not_applicable"><label>Not Applicable</label></li>
+            </ul>
+            <label class="statement">3. Trip at the edges of pavements going up?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question3" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question3" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question3" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question3" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question3" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question3" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">4. Trip at the edges of pavements going down?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question4" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question4" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question4" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question4" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question4" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question4" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">5. Have difficulty filling a cup - tend to overfill or underfill?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question5" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question5" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question5" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question5" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question5" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question5" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">6. Look down when crossing floor boundaries (e.g., where lino meets carpet)?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question6" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question6" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question6" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question6" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question6" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question6" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">7. Leave food on the near or far side of their plate?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question7" value="never"><label>Never</label></li>
+   <li><input type="radio" name="question7" value="rarely"><label>Rarely</label></li>
+   <li><input type="radio" name="question7" value="sometimes"><label>Sometimes</label></li>
+   <li><input type="radio" name="question7" value="often"><label>Often</label></li>
+   <li><input type="radio" name="question7" value="always"><label>Always</label></li>
+   <li><input type="radio" name="question7" value="not_applicable"><label>Not Applicable</label></li>
+   <br>
+   <label class="statement" for="nearFar">If so, on which side?</label><br>
+   <!-- Fixed issue with duplicate IDs, ensure unique IDs for each radio -->
+   <input type="radio" id="near" name="side" value="near">
+   <label for="near">Near</label><br>
+   <input type="radio" id="far" name="side" value="far">
+   <label for="far">Far</label><br>
+</ul><label class="statement">8. Leave food on the right or left side of their plate?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question8" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question8" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question8" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question8" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question8" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question8" value="not_applicable"><label>Not Applicable</label></li>
+  <br>
+   <label class="statement" for="nearFar">If so, on which side?</label><br>
+   <!-- Fixed issue with duplicate IDs, ensure unique IDs for each radio -->
+   <input type="radio" id="right" name="side2" value="right">
+   <label for="rigjt">Right</label><br>
+   <input type="radio" id="left" name="side2" value="left">
+   <label for="left">Left</label><br>
+</ul><label class="statement">9. Have difficulty finding the beginning of a line when reading?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question9" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question9" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question9" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question9" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question9" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question9" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">10. Have difficulty finding the next word when reading?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question10" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question10" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question10" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question10" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question10" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question10" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">11. Walk out in front of traffic?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question11" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question11" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question11" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question11" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question11" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question11" value="not_applicable"><label>Not Applicable</label></li>
+  <br>
+   <label class="statement" for="roadSide">If so, on which side?</label><br>
+   <!-- Fixed issue with duplicate IDs, ensure unique IDs for each radio -->
+   <input type="radio" id="roadRight" name="roadSide" value="right">
+   <label for="near">Right</label><br>
+   <input type="radio" id="roadleft" name="roadSide" value="left">
+   <label for="far">Left</label><br>
+   <input type="radio" id="roadBoth" name="roadSide" value="both">
+   <label for="far">Both</label><br>
+</ul><label class="statement">12. Bump into doorframes or partly open doors?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question12" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question12" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question12" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question12" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question12" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question12" value="not_applicable"><label>Not Applicable</label></li>
+  <br>
+   <label class="statement" for="roadSide">If so, on which side do they bump?</label><br>
+   <!-- Fixed issue with duplicate IDs, ensure unique IDs for each radio -->
+   <input type="radio" id="doorRight" name="doorSide" value="right">
+   <label for="near">Right</label><br>
+   <input type="radio" id="doorleft" name="doorSide" value="left">
+   <label for="far">Left</label><br>
+   <input type="radio" id="doorBoth" name="doorSide" value="both">
+   <label for="far">Both</label><br>
+</ul><label class="statement">13. Miss pictures or words on one side of a page?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question13" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question13" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question13" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question13" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question13" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question13" value="not_applicable"><label>Not Applicable</label></li>
+  <br>
+  <label class="statement" for="roadSide">If so, on which side do they miss words?</label><br>
+  <!-- Fixed issue with duplicate IDs, ensure unique IDs for each radio -->
+  <input type="radio" id="bookRight" name="bookSide" value="right">
+  <label for="near">Right</label><br>
+  <input type="radio" id="bookleft" name="bookSide" value="left">
+  <label for="far">Left</label><br>
+  <input type="radio" id="bookBoth" name="bookSide" value="both">
+  <label for="far">Both</label><br>
+</ul><label class="statement">14. Have difficulty seeing scenery from a moving vehicle?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question14" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question14" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question14" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question14" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question14" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question14" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">15. Have difficulty seeing things which are moving quickly, such as small animals?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question15" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question15" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question15" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question15" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question15" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question15" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">16. Avoid watching fast-moving TV?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question16" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question16" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question16" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question16" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question16" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question16" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">17. Choose to watch slow-moving TV?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question17" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question17" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question17" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question17" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question17" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question17" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">18. Have difficulty catching a ball?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question18" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question18" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question18" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question18" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question18" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question18" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">19. Have difficulty seeing something which is pointed out in the distance?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question19" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question19" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question19" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question19" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question19" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question19" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">20. Have difficulty finding a close friend or relative standing in a group?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question20" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question20" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question20" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question20" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question20" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question20" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">21. Have difficulty finding an item in a supermarket? (e.g. finding the breakfast cereal they want)</label>
+<ul class='likert'>
+   <li><input type="radio" name="question21" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question21" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question21" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question21" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question21" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question21" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">22. Get lost in places where there is a lot to see, like a crowded shop?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question22" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question22" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question22" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question22" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question22" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question22" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">23. Get lost in places which are well-known to them?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question23" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question23" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question23" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question23" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question23" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question23" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">24. Have difficulty locating an item of clothing in a pile of clothes?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question24" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question24" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question24" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question24" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question24" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question24" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">25. Have difficulty selecting a chosen toy in a toy box?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question25" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question25" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question25" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question25" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question25" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question25" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">26. Sit closer to the television than about 30 cm?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question26" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question26" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question26" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question26" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question26" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question26" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">27. Find copying words or drawings time-consuming and difficult?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question27" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question27" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question27" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question27" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question27" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question27" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">28. Hold onto your clothes, tugging down when walking?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question28" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question28" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question28" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question28" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question28" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question28" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">29. Find uneven ground difficult to walk over?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question29" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question29" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question29" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question29" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question29" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question29" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">30. Bump into low furniture such as a coffee table?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question30" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question30" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question30" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question30" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question30" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question30" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">31. Bump into low furniture if it is moved?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question31" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question31" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question31" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question31" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question31" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question31" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">32. Get angry if furniture is moved?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question32" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question32" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question32" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question32" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question32" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question32" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">33. Explore floor boundaries (e.g., lino/carpet) with their foot before crossing the boundary?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question33" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question33" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question33" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question33" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question33" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question33" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">34. Find inside floor boundaries difficult to cross?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question34" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question34" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question34" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question34" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question34" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question34" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">35. If so, boundaries that are new to them?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question35" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question35" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question35" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question35" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question35" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question35" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">36. Boundaries that are well known to them?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question36" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question36" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question36" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question36" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question36" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question36" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">37. Reach incorrectly for objects (e.g., reach beyond or around the object)?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question37" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question37" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question37" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question37" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question37" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question37" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">38. Grasp incorrectly when picking up an object (e.g., miss or knock the object over)?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question38" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question38" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question38" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question38" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question38" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question38" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">39. Find it difficult to keep to a task for more than 5 minutes?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question39" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question39" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question39" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question39" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question39" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question39" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">40. Find it difficult to get back to what they were doing after being distracted?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question40" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question40" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question40" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question40" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question40" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question40" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">41. Bump into things when walking and having a conversation?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question41" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question41" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question41" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question41" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question41" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question41" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">42. Miss objects that are obvious to you because they are different from their background and seem to ‘pop out’ (e.g., a bright ball in the grass)?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question42" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question42" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question42" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question42" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question42" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question42" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">43. Have difficult behavior in rooms with a lot of clutter?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question43" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question43" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question43" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question43" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question43" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question43" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">44. Have difficult behavior in quiet places or open countryside?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question44" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question44" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question44" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question44" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question44" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question44" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">45. Have difficult behavior in a busy supermarket or shopping center?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question45" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question45" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question45" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question45" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question45" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question45" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">46. React angrily when other restless children cause distraction?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question46" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question46" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question46" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question46" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question46" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question46" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">47. Have difficulty recognizing close relatives in real life?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question47" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question47" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question47" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question47" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question47" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question47" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">48. Have difficulty understanding the meaning of facial expressions?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question48" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question48" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question48" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question48" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question48" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question48" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">49. Have difficulty naming common colors?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question49" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question49" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question49" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question49" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question49" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question49" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">50. Have difficulty naming basic shapes such as squares, triangles, and circles?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question50" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question50" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question50" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question50" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question50" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question50" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">51. Have difficulty recognizing familiar objects such as the family car?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question51" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question51" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question51" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question51" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question51" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question51" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">52. Have difficulty recognizing objects on a similar background (e.g., white t-shirt on a white sheet)?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question52" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question52" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question52" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question52" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question52" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question52" value="not_applicable"><label>Not Applicable</label></li>
+</ul><label class="statement">53. Have difficulty recognising close relatives from photographs?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question53" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question53" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question53" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question53" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question53" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question53" value="not_applicable"><label>Not Applicable</label></li>
+</ul>
+</ul><label class="statement">54. Mistakenly identify strangers as people known to them?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question54" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question54" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question54" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question54" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question54" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question54" value="not_applicable"><label>Not Applicable</label></li>
+</ul>
+</ul><label class="statement">55. Have difficulty recognising/ finding an object if it is partially hidden? (i.e. a shoe under a bed with only the toe showing)</label>
+<ul class='likert'>
+   <li><input type="radio" name="question55" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question55" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question55" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question55" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question55" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question55" value="not_applicable"><label>Not Applicable</label></li>
+</ul>
+</ul><label class="statement">56. Have difficulty identifying right and left shoe?</label>
+<ul class='likert'>
+   <li><input type="radio" name="question56" value="never"><label>Never</label></li>
+    <li><input type="radio" name="question56" value="rarely"><label>Rarely</label></li>
+  <li><input type="radio" name="question56" value="sometimes"><label>Sometimes</label></li>
+    <li><input type="radio" name="question56" value="often"><label>Often</label></li>
+    <li><input type="radio" name="question56" value="always"><label>Always</label></li>
+  <li><input type="radio" name="question56" value="not_applicable"><label>Not Applicable</label></li>
+</ul>
         </form>
+
+
     </div>
 
     <!-- Navigation Buttons -->
